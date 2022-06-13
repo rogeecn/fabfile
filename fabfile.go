@@ -30,3 +30,11 @@ func Find(dst string) (string, error) {
 		path = filepath.Dir(path)
 	}
 }
+
+func MustFind(dst string) string {
+	if path, err := Find(dst); err != nil {
+		panic(err)
+	} else {
+		return path
+	}
+}
