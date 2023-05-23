@@ -38,3 +38,21 @@ func MustFind(dst string) string {
 		return path
 	}
 }
+
+func Read(file string) ([]byte, error) {
+	fp, err := Find(file)
+	if err != nil {
+		return nil, err
+	}
+
+	return os.ReadFile(fp)
+}
+
+func MustRead(file string) []byte {
+	b, err := Read(file)
+	if err != nil {
+		panic(err)
+	}
+
+	return b
+}
