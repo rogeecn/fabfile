@@ -5,9 +5,14 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"strings"
 )
 
 func Find(dst string) (string, error) {
+	if strings.HasPrefix(dst, "/") {
+		return dst, nil
+	}
+
 	path, err := os.Getwd()
 	if err != nil {
 		return "", err
