@@ -52,7 +52,6 @@ func Read(file string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return os.ReadFile(fp)
 }
 
@@ -61,6 +60,5 @@ func MustRead(file string) []byte {
 	if err != nil {
 		panic(err)
 	}
-
 	return b
 }
