@@ -10,6 +10,9 @@ import (
 
 func Find(dst string) (string, error) {
 	if strings.HasPrefix(dst, "/") {
+		if _, err := os.Stat(dst); err != nil {
+			return dst, err
+		}
 		return dst, nil
 	}
 
